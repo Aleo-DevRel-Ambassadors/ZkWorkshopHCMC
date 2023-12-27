@@ -36,6 +36,15 @@ This workshop requires the following prerequisites.
 5.  [Install Leo Wallet](https://leo.app/)
 6.  [Install VSCode](https://code.visualstudio.com/download)
 
+
+## Aleo Testnet 토큰 받기
+
+[greenlist](https://faucetgreenlist.snarkos.net/) Make address valid.
+
+[Aleo Discord](https://discord.com/invite/aleohq) Using faucet to get Aleo.
+
+`/sendcredits {WalletAddress} 15`
+
 ### Installation
 
 To install Aleo and Leo, run:
