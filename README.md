@@ -15,14 +15,9 @@
     - [VSCode](#vscode-preferred)
     - [Sublime Text](#sublime-text)
     - [IntelliJ IDEA](#intellij-idea)
-- [Application Walkthroughs](#application-walkthroughs)
-    - [🏛️ Auction](#-auction) ([Source Code](./auction/))
-    - [🏦 Basic Bank](#-basic-bank) ([Source Code](./basic_bank/))
-    - [🛳️ Battleship](#-battleship) ([Source Code](./battleship/))
-    - [⭕ Tic-Tic-Toe](#-tic-tac-toe) ([Source Code](./tictactoe/))
-    - [🪙 Token](#-token) ([Source Code](./token))
-    - [🗳️ Vote](#-vote) ([Source Code](./vote/))
-
+- [Deploy Program](#deploy-program)
+    - [Command](#command)
+    - [Result](#Result)
 ## Build Guide
 
 The following steps will install Aleo and Leo on your machine. This workshop is compatible on macOS, Linux, and Windows machines.
@@ -30,9 +25,16 @@ The following steps will install Aleo and Leo on your machine. This workshop is 
 ### Prerequisites
 
 This workshop requires the following prerequisites.
+1.  [Install Git](https://git-scm.com/downloads)
+2.  [Install Rust](https://www.rust-lang.org/tools/install)
+3.  [Install Leo](https://developer.aleo.org/leo/installation)
+4.  [Install snarkos](https://developer.aleo.org/testnet/getting_started/installation/)
 
-- Install `git` with [bit.ly/start-git](https://bit.ly/start-git)
-- Install `Rust`with [bit.ly/start-rust](https://bit.ly/start-rust)
+	For Windows: [snasrkOS releases](https://github.com/AleoHQ/snarkOS/releases) Using unzip and run with cmd/pw.
+    Note: Can export enviroment to path.
+    
+5.  [Install Leo Wallet](https://leo.app/)
+6.  [Install VSCode](https://code.visualstudio.com/download)
 
 ### Installation
 
@@ -89,66 +91,43 @@ Lastly, type **Leo** into the search bar, and install the official Leo plugin.
 
 </details>
 
-## Application Walkthroughs
+## Deploy Program
 
-This workshop walks through the following applications:
-- [auction](./auction/) - A first-price sealed-bid auction in Leo
-- [basic_bank](./basic_bank/) - A simple-interest yielding bank account in Leo
-- [battleship](./battleship/)- A two-player game of Battleship in Leo
-- [tictactoe](./tictactoe/) - A standard game of Tic-Tac-Toe in Leo
-- [token](./token) - A transparent & shielded custom token in Leo
-- [vote](./vote/) - A ballot voting example in Leo
-
-### 🏛️ Auction
-
-A first-price sealed-bid auction in Leo.
-
-To see the auction example, run:
+### Command (no fee)
+For Macos/ Linux:
 ```
-cd auction && ./run.sh
+PRIVATEKEY="${PRIVATEKEY}"
+APPNAME="<project_name>"
+
+snarkos developer deploy "${APPNAME}.aleo" --private-key "${PRIVATEKEY}" --query "https://api.explorer.aleo.org/v1" --path "./${APPNAME}/build/" --broadcast "https://api.explorer.aleo.org/v1/testnet3/transaction/broadcast" --priority-fee 0
+
 ```
 
-### 🏦 Basic Bank
-
-A simple-interest yielding bank account in Leo.
-
-To see the basic bank example, run:
+For Windows (Using direct .exe file):
 ```
-cd basic_bank && ./run.sh
+.\snarkos developer deploy "${APPNAME}.aleo" --private-key "${PRIVATEKEY}" --query "https://api.explorer.aleo.org/v1" --path "./${APPNAME}/build/" --broadcast "https://api.explorer.aleo.org/v1/testnet3/transaction/broadcast" --priority-fee 0
 ```
 
-### 🛳️ Battleship
+### Result
+Result (demo):
+![](./.resources/deployToken.png)
 
-A two-player game of Battleship in Leo.
-
-To see a game of Battleship between two players, run:
+### Command
+For Macos/ Linux:
 ```
-cd battleship && ./run.sh
-```
+PRIVATEKEY="${PRIVATEKEY}"
+APPNAME="<project_name>"
+RECORD=""
+snarkos developer deploy "${APPNAME}.aleo" --private-key "${PRIVATEKEY}" --query "https://api.explorer.aleo.org/v1" --path "./${APPNAME}/build/" --broadcast "https://api.explorer.aleo.org/v1/testnet3/transaction/broadcast" --priority-fee 100000 --record "${RECORD}"
 
-### ⭕ Tic-Tac-Toe
-
-A standard game of Tic-Tac-Toe in Leo.
-
-To see a game of Tic-Tac-Toe between two players, run:
-```
-cd tictactoe && ./run.sh
 ```
 
-### 🪙 Token
-
-A transparent & shielded custom token in Leo.
-
-To see an example of minting and transfering tokens, run:
+For Windows (Using direct .exe file):
 ```
-cd token && ./run.sh
+.\snarkos developer deploy "${APPNAME}.aleo" --private-key "${PRIVATEKEY}" --query "https://api.explorer.aleo.org/v1" --path "./${APPNAME}/build/" --broadcast "https://api.explorer.aleo.org/v1/testnet3/transaction/broadcast" --priority-fee 100000 --record "${RECORD}"
 ```
 
-### 🗳️ Vote
+### Result
+Result (demo):
+![](./.resources/deployTokenFee.png)
 
-A ballot voting example in Leo.
-
-To see an example of a ballot, run:
-```
-cd vote && ./run.sh
-```
