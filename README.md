@@ -37,7 +37,7 @@ This workshop requires the following prerequisites.
 6.  [Install VSCode](https://code.visualstudio.com/download)
 
 
-## Aleo Testnet 토큰 받기
+## Aleo Testnet
 
 [greenlist](https://faucetgreenlist.snarkos.net/) Make address valid.
 
